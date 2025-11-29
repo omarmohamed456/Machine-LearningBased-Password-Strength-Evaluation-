@@ -68,7 +68,7 @@ git add file.py #to add specific file-
 
 
 
-git commit -m "commit note" #hows up to everyone on GitHub by the way
+git commit -m "commit note" #shows up to everyone on GitHub so be carful and make it clear 
 
 
 
@@ -84,9 +84,7 @@ git status
 
 
 
-git remote add origin https://github.com/omarmohamed456/Machine-LearningBased-Password-Strength-Evaluation-
-
-
+git remote add origin https://github.com/omarmohamed456/Machine-LearningBased-Password-Strength-Evaluation- #origin is the name of the repo (best practice)
 
 
 
@@ -107,6 +105,18 @@ git remote set-url origin https://github.com/USERNAME/REPO.git #may be needed if
 
 
 **--> to pull (download)**
+
+
+
+git pull #used to update local branch with the upstream branch
+
+
+
+git pull origin main #pull from a specific remote branch to the branch you are in remote branch here is main
+
+
+
+also after git push -u origin main you can just use git pull NOTE can't git pull -u origin main 
 
 
 
@@ -212,9 +222,27 @@ git branch -vv
 
 
 
+**--> to clone**
+
+\#to make a copy from an online repo to your local machine
+
+
+
+git clone https://github.com/omarmohamed456/Machine-LearningBased-Password-Strength-Evaluation-
+
+
+
+**--> to make a copy of an online branch that doesn't exist locally**
+
+
+
+git checkout -b main origin/main #create local copy of the remote branch.
+
+
+
 **--> to fork**
 
-\#forking means to copy someone else's repo on your account 
+\#forking means to copy someone else's repo on your account
 
 
 
@@ -222,15 +250,17 @@ done on GitHub
 
 
 
-**--> to clone**
+**-->to pull Request**
 
-\#to make a copy from an online repo to your local machine
-
-
-
-git clone https://github.com/USERNAME/REPO.git
+\#to propose changes in case you don't have access
 
 
 
---> to change head
+done on GitHub
+
+
+
+**--> to change head**
+
+\#this is only needed to go back to previous commits 
 
