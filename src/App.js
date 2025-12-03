@@ -1,86 +1,66 @@
-import './App.css';
 import React, { useState } from "react";
+import "./App.css";
 
 function App() {
   const [activeTab, setActiveTab] = useState("home");
-  const [password, setPassword] = useState("");
+  const [input, setInput] = useState("");
+
   return (
-    <div style={{ fontFamily: "Arial", padding: "40px" }}>
-
-      {/* ---- TOP NAVIGATION ---- */}
-      <div style={{
-        display: "flex",
-        justifyContent: "center",
-        gap: "150px",
-        fontSize: "24px",
-        marginBottom: "50px",
-        cursor: "pointer",
-      }}>
-        <span onClick={() => setActiveTab("hello")}>Hello</span>
-        <span onClick={() => setActiveTab("home")}>Home Page</span>
-        <span onClick={() => setActiveTab("about")}>About Us</span>
-      </div>
-
-      {/* ---- PAGE CONTENT ---- */}
-      {activeTab === "home" && (
-        <div>
-          <label style={{ fontSize: "20px" }}>Type your password here</label>
-          <br /><br />
-
-          {/* INPUT BOX */}
-          <input
-            type="text"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            style={{
-              width: "600px",
-              height: "40px",
-              border: "3px solid black",
-              fontSize: "20px",
-              padding: "10px"
-            }}
-          />
-
-          <br /><br />
-
-          {/* ENTER BUTTON */}
-          <button
-            style={{
-              padding: "10px 30px",
-              fontSize: "18px",
-              cursor: "pointer",
-              border: "2px solid black",
-              background: "white"
-            }}
-            onClick={() => {
-              // You can add your transform logic later here
-              console.log("Entered:", password);
-            }}
-          >
-            Enter
-          </button>
-
-          <br /><br /><br />
-
-          {/* OUTPUT BOX — stays blank */}
-          <label style={{ fontSize: "20px" }}>Output</label>
-          <br /><br />
-          <div
-            style={{
-              width: "600px",
-              height: "60px",
-              border: "3px solid black",
-              fontSize: "20px",
-              padding: "10px",
-            }}
-          >
-            {/* intentionally left blank */}
-          </div>
+    <div className="page">
+      {/* ---- HEADER ---- */}
+      <header className="header">
+        <div 
+          className={`tab ${activeTab === "hello" ? "active" : ""}`}
+          onClick={() => setActiveTab("hello")}
+        >
+          Hello
         </div>
-      )}
 
-      {activeTab === "hello" && <h2>This is the Hello page</h2>}
-      {activeTab === "about" && <h2>About Us page content goes here.</h2>}
+        <div 
+          className={`tab ${activeTab === "home" ? "active" : ""}`}
+          onClick={() => setActiveTab("home")}
+        >
+          Home Page
+        </div>
+
+        <div 
+          className={`tab ${activeTab === "about" ? "active" : ""}`}
+          onClick={() => setActiveTab("about")}
+        >
+          About Us
+        </div>
+      </header>
+
+      {/* ---- MAIN CONTENT ---- */}
+      <main className="content">
+        {activeTab === "home" && (
+          <div>
+            <h2>Type your password here</h2>
+
+            {/* Input box */}
+            <input 
+              className="input-box"
+              type="text"
+              value={input}
+              placeholder="Enter password..."
+              onChange={(e) => setInput(e.target.value)}
+            />
+
+            {/* Enter button */}
+            <button className="enter-btn">
+              Enter
+            </button>
+
+            <h2>Output</h2>
+
+            {/* Output box (empty for now) */}
+            <div className="output-box"></div>
+          </div>
+        )}
+
+        {activeTab === "hello" && <h2>Hello Page</h2>}
+        {activeTab === "about" && <h2>About Us</h2>}
+      </main>
     </div>
   );
 }
