@@ -17,6 +17,12 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+ if password.lower() in COMMON_PASSWORDS_DB:
+        return {
+            "is_strong": False,
+            "message": "Security Risk: This password was found in our compromised password dataset. Please choose a different one."
+        }
+
 # Define the data structure
 class PasswordRequest(BaseModel):
     password: str
